@@ -36,7 +36,7 @@ export function displayImages(images) {
 
   images.forEach(image => {
     const imageCard = createImageCard(image);
-    galleryElement.appendChild(imageCard);
+    galleryElement.insertAdjacentHTML('beforeend', imageCard);
   });
 
   hideLoader(); // Приховуємо індикатор завантаження після відображення зображень
@@ -51,35 +51,28 @@ export function displayImages(images) {
 
 // Створення картки зображення
 function createImageCard(image) {
-  const card = document.createElement('div');
-  card.classList.add('image-card');
+  return `<div class="card">
+  <div class="image-container">
+    <img
+      src="${image.webformatURL}"
+      alt="${image.tags}"
+      class="image"
+    />
+  </div>
+  <div class="options">
+      <h2 class="options-name">Likes</h2>
+      <h2 class="options-name">Views</h2>
+      <h2 class="options-name">Comments</h2>
+      <h2 class="options-name">Downloads</h2>
+    </div>
 
-  const img = document.createElement('img');
-  img.src = image.webformatURL;
-  img.alt = image.tags;
+    <div class="description">
+      <p class="value-description">${image.likes}</p>
+      <p class="value-description">${image.views}</p>
+      <p class="value-description">${image.comments}</p>
+      <p class="value-description">${image.downloads}</p>
 
-  const likes = document.createElement('p');
-  likes.textContent = `Likes: ${image.likes}`;
-
-  const views = document.createElement('p');
-  views.textContent = `Views: ${image.views}`;
-
-  const comments = document.createElement('p');
-  comments.textContent = `Comments: ${image.comments}`;
-
-  const downloads = document.createElement('p');
-  downloads.textContent = `Downloads: ${image.downloads}`;
-
-  // Додати посилання на оригінальне зображення
-  const link = document.createElement('a');
-  link.href = image.largeImageURL;
-  link.appendChild(img);
-
-  card.appendChild(link);
-  card.appendChild(likes);
-  card.appendChild(views);
-  card.appendChild(comments);
-  card.appendChild(downloads);
-
-  return card;
+    </div>
+  </div>
+</div>`;
 }

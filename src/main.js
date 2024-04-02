@@ -1,5 +1,7 @@
 //вся логіка роботи додатка
-
+import iziToast from 'izitoast';
+// Додатковий імпорт стилів
+import 'izitoast/dist/css/iziToast.min.css';
 import { searchImages } from './js/pixabay-api.js';
 import { displayImages } from './js/render-functions.js';
 
@@ -16,7 +18,10 @@ form.addEventListener('submit', async event => {
   // Перевірка на порожній рядок
   if (keyword === '') {
     displayErrorMessage('Please enter a search keyword');
-    return;
+    return iziToast.error({
+      message: 'Please enter a search keyword',
+      position: 'topRight',
+    });;
   }
 
   try {
