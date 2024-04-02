@@ -59,20 +59,20 @@ function createImageCard(image) {
       class="image"
     />
   </div>
-  <div class="options">
-      <h2 class="options-name">Likes</h2>
-      <h2 class="options-name">Views</h2>
-      <h2 class="options-name">Comments</h2>
-      <h2 class="options-name">Downloads</h2>
-    </div>
-
-    <div class="description">
-      <p class="value-description">${image.likes}</p>
-      <p class="value-description">${image.views}</p>
-      <p class="value-description">${image.comments}</p>
-      <p class="value-description">${image.downloads}</p>
-
-    </div>
-  </div>
-</div>`;
+  <table class="table">
+        <tr> 
+          <th class="options-name">Likes</th>
+          <th class="options-name">Views</th>
+          <th class="options-name">Comments</th>
+          <th class="options-name">Downloads</th>
+        </tr>
+        <tr> 
+          <td class="value-description">${image.likes}</td>
+          <td class="value-description">${image.views}</td>
+          <td class="value-description">${image.comments}</td>
+          <td class="value-description">${image.downloads}</td>
+        </tr>
+    </table>
+  </div>`
 }
+
