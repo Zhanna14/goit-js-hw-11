@@ -9,15 +9,18 @@
   </head>
   <body>
     <section>
-      <form class="search-form">
+      <form class="form">
         <div class="form-group">
-        <input type="text" class="form-control" name="image" placeholder="Search images..." />
+        <input type="text" class="form-control" id = "search-input" placeholder="Search images..." />
         </div>
         <button type="submit" class="btn btn-primary">Search</button>
       </form>
 
       <!-- Відображення результатів пошуку -->
-      <div id="gallery"></div>
+      <div id="loader" class="loader"></div>
+      <div id="gallery">
+
+      </div>
         
     </section>
     <script type="module" src="main.js"></script>

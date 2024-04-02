@@ -1,7 +1,7 @@
 //вся логіка роботи додатка
 
 import { searchImages } from './js/pixabay-api.js';
-import { displayImages, displayErrorMessage } from './js/render-functions.js';
+import { displayImages } from './js/render-functions.js';
 
 // Отримання елементів DOM
 const form = document.querySelector('form');
@@ -27,6 +27,5 @@ form.addEventListener('submit', async event => {
     displayImages(images);
   } catch (error) {
     console.error('Error searching images:', error);
-    displayErrorMessage('An error occurred while searching for images');
   }
 });
