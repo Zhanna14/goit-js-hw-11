@@ -6,8 +6,6 @@ import { Spinner } from 'spin.js';
 let spinner = null; // Змінна для зберігання індикатора завантаження
 let instance = null; // Змінна для зберігання екземпляру SimpleLightbox
 
-
-
 // Функція для створення і показу індикатора завантаження
 function showLoader() {
   spinner = new Spinner().spin();
@@ -74,4 +72,3 @@ function createSimpleLightbox() {
     captionsData: 'alt', // підпис зображення
   });
 }
-
