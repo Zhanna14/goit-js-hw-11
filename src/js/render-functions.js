@@ -6,13 +6,7 @@ import { Spinner } from 'spin.js';
 let spinner = null; // Змінна для зберігання індикатора завантаження
 let instance = null; // Змінна для зберігання екземпляру SimpleLightbox
 
-// Функція для створення нового екземпляру SimpleLightbox
-function createSimpleLightbox() {
-  instance = new SimpleLightbox('#gallery a', {
-    captionDelay: 250, // зображення підпису за 250 ms
-    captionsData: 'alt', // підпис зображення
-  });
-}
+
 
 // Функція для створення і показу індикатора завантаження
 function showLoader() {
@@ -53,11 +47,9 @@ export function displayImages(images) {
 function createImageCard(image) {
   return `<div class="card">
   <div class="image-container">
-    <img
-      src="${image.webformatURL}"
-      alt="${image.tags}"
-      class="image"
-    />
+   <a href="${image.largeImageURL}" data-lightbox="image">
+        <img src="${image.webformatURL}" alt="${image.tags}" class="image" />
+      </a>
   </div>
   <table class="table">
         <tr> 
@@ -73,6 +65,13 @@ function createImageCard(image) {
           <td class="value-description">${image.downloads}</td>
         </tr>
     </table>
-  </div>`
+  </div>`;
+}
+
+function createSimpleLightbox() {
+  instance = new SimpleLightbox('#gallery a', {
+    captionDelay: 250, // зображення підпису за 250 ms
+    captionsData: 'alt', // підпис зображення
+  });
 }
 
